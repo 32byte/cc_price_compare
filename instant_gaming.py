@@ -10,12 +10,13 @@ def get_prices(query, dlc=False, max=3):
     for x in soup.find_all('div', { 'class': 'category-best item mainshadow' }):
         price = x['data-price']
         title = x.find('div', { 'class': 'name' }).text
+        data = (title, price, 'instant-gaming')
         if not dlc:
             if x['data-dlc'] == '0':
-                output.append((title, price))    
+                output.append(data)
         else:
             if x['data-dlc'] == '1':
-                output.append((title, price))
+                output.append(data)
         if len(output) == max:
             return output
     return output
