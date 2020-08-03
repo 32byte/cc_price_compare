@@ -5,4 +5,4 @@ def get_prices(query):
     r = req.get(f'https://www.instant-gaming.com/en/search/?q={query}')
     soup = bs(r.text)
 
-    print(soup)
+    return soup.find_all('a')
