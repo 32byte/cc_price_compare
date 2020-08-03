@@ -1,3 +1,3 @@
-import requests
+import instant_gaming
 
-print("Hello World!")
+print(instant_gaming.get_prices('ark'))
