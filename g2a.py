@@ -28,3 +28,10 @@ def get_prices(query, dlc=False, max=3):
         if len(output) == max:
             return output
     return output
+
+def main():
+    game = input("Game to compare: ")
+    get_prices(game)
+
+if __name__ == "__main__":
+    main()

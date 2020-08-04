@@ -1,7 +1,7 @@
 import requests as req
 from bs4 import BeautifulSoup as bs
 
-def get_prices(query, dlc=False, max=3):
+def idiot_cyka(query, dlc=False, max=3):
     r = req.get(f'https://www.instant-gaming.com/en/search/?q={query}')
     soup = bs(r.text, "html.parser")
 
@@ -20,3 +20,11 @@ def get_prices(query, dlc=False, max=3):
         if len(output) == max:
             return output
     return output
+
+
+def main():
+    game = input("Game to compare: ")
+    idiot_cyka(game)
+
+if __name__ == "__main__":
+    main()
