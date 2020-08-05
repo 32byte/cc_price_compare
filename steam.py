@@ -1,7 +1,7 @@
 import requests as req
 from bs4 import BeautifulSoup as bs
 
-def idiot_cyka(query, dlc=False, max=3):
+def get_prices(query, dlc=False, max=3):
     headers = {
         'Host': 'store.steampowered.com',
         'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:79.0) Gecko/20100101 Firefox/79.0',
@@ -51,7 +51,7 @@ def idiot_cyka(query, dlc=False, max=3):
 
 def main():
     game = input("Game to compare: ")
-    idiot_cyka(game)
+    get_prices(game)
     
 if __name__ == "__main__":
     main()
