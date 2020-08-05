@@ -7,6 +7,7 @@ import g2a
 import wait_util
 import time
 
+
 def get_prices(query, dlc=False, max=3):
     query = urllib.parse.quote_plus(query)
     

@@ -1,6 +1,7 @@
 import tkinter as tk
 from PIL import Image
 from PIL import ImageTk
+import main
 
 
 class App(tk.Frame):
@@ -11,7 +12,27 @@ class App(tk.Frame):
 
         def show_search():
             search_saved = self.search.get()
+            main.get_prices(search_saved)
+            #self.g2a2['text'] = search_saved
             print(search_saved)
+
+        self.search_for_dlc = 1
+
+
+        def search_dlc_switch():
+
+            self.search_for_dlc *= -1
+
+            if self.search_for_dlc == 1:
+                self.search_for_dlc_bool = True
+                print("success if")
+            elif self.search_for_dlc == -1:
+                self.search_for_dlc_bool = False
+                print("success elif")
+            else:
+                print("not success")
+
+
 
 
 
@@ -48,6 +69,9 @@ class App(tk.Frame):
         self.g2a2 = tk.Label(self)
         self.g2a3 = tk.Label(self)
 
+        self.dlc_button = tk.Button(self, text="Search for DLCs:", command=search_dlc_switch())
+        self.dlc_on = tk.Label(self)
+
 
 
 
@@ -69,6 +93,7 @@ class App(tk.Frame):
         #helpmenu = Menu(menu)
 
 
+
         #adding widgets to grid----------------------------------
         self.title.grid(columnspan=3, sticky="N", )
         self.info_button.grid(row=0, column=3, sticky="E")
@@ -76,6 +101,7 @@ class App(tk.Frame):
         self.search_button.grid(row=1, column=2, padx=10)
         self.search.grid(row=1, column=1)
         self.all_prices_label.grid(row=3, column=0, pady=10)
+        self.dlc_button.grid(row=3, column=1)
         self.steam_label.grid(row=4, column=0)
         self.instnat_label.grid(row=4, column=1, padx= 10)
         self.g2a_label.grid(row=4, column=2)
