@@ -19,10 +19,9 @@ def get_prices(query, dlc=False, max=3):
     output = []
     
     for x in soup.find_all('div', { 'class': 'Card__base' }):
-        price = x.find('span', { 'class': 'Card__price-cost price' }).text
+        price = x.find('span', { 'class': 'Card__price-cost price' }).text.replace(' EUR', '')
         title = x.find('h3', { 'class': 'Card__title' }).find("a").text
         data = (title, price, 'g2a')
-        print(data)
 
         output.append(data)
         if len(output) == max:

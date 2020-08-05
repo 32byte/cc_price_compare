@@ -7,7 +7,6 @@ def _wait_for(bool, text, blinc, end, delay):
     while bool[0] > 0:
         print('\033[1A\033[{}C{}'.format(len(text), blinc[i % len(blinc)]))
         i += 1
-        bool[0] -= 1
         time.sleep(delay)
     print('\033[1A\033[{}C{}'.format(len(text), end))
 

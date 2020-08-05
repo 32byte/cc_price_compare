@@ -9,7 +9,7 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 def print_data(data):
-    data.sort(key=lambda tup:(tup[0].lower(), int(tup[1])))
+    data.sort(key=lambda tup:(tup[0].lower(), float(tup[1])))
 
     last = None
     for e in data:
@@ -21,3 +21,8 @@ def print_data(data):
         else:
             print('\t{}Price: {:>6} \tWebsite: {:<20}{}'.format(bcolors.WARNING, e[1], e[2], bcolors.ENDC))
         last = e[0].lower()
+
+if __name__ == '__main__':
+    import main
+
+    print_data(main.get_prices('ark'))
