@@ -24,5 +24,14 @@ def print_data(data):
 
 if __name__ == '__main__':
     import main
+    import argparse
 
-    print_data(main.get_prices('ark'))
+    parser = argparse.ArgumentParser(description='Commandline tool to compare prices between different websites', usage='python3 cli.py <game> [options]')
+    parser.add_argument('query' , type=str , help='Game you\'re searching for')
+    parser.add_argument('--dlc', dest='dlc', action='store_true', help='Are you searching a dlc?')
+    parser.set_defaults(dlc=False)
+    parser.add_argument('--max', type=int , help='Max number of results per website', default=3)
+    
+    args = parser.parse_args()
+    
+    print_data(main.get_prices(args.query, args.dlc, args.max))
