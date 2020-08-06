@@ -1,7 +1,7 @@
 import tkinter as tk
 from PIL import Image
 from PIL import ImageTk
-from utils.util import get_prices
+from util import get_prices
 
 
 class App(tk.Frame):
