@@ -10,7 +10,7 @@ import time
 
 def get_prices(query, dlc=False, max=3):
     query = urllib.parse.quote_plus(query)
-    
+
     out = []
     error = [False]
     try:
