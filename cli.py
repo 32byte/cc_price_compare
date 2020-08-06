@@ -23,7 +23,7 @@ def print_data(data):
         last = e[0].lower()
 
 if __name__ == '__main__':
-    import main
+    from utils.util import get_prices
     import argparse
 
     parser = argparse.ArgumentParser(description='Commandline tool to compare prices between different websites', usage='python3 cli.py <game> [options]')
@@ -34,4 +34,4 @@ if __name__ == '__main__':
     
     args = parser.parse_args()
     
-    print_data(main.get_prices(args.query, args.dlc, args.max))
+    print_data(get_prices(args.query, args.dlc, args.max))

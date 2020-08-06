@@ -1,7 +1,7 @@
 import tkinter as tk
 from PIL import Image
 from PIL import ImageTk
-import main
+from utils.util import get_prices
 
 
 class App(tk.Frame):
@@ -19,7 +19,7 @@ class App(tk.Frame):
             search_saved = self.search.get()
 
 
-            result = main.get_prices(search_saved, self.search_for_dlc)
+            result = get_prices(search_saved, self.search_for_dlc)
             #self.g2a2['text'] = search_saved
             self.connecting['text'] = ""
 
