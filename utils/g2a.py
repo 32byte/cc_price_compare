@@ -23,7 +23,11 @@ def get_prices(query, dlc=False, max=3):
         title = x.find('h3', { 'class': 'Card__title' }).find("a").text
         data = (title, price, 'g2a')
 
-        output.append(data)
+        if not "xbox" in tile.lower():
+            output.append(data)
+        else:
+            pass
+
         if len(output) == max:
             return output
     return output
