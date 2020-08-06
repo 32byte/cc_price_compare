@@ -1,10 +1,10 @@
 import urllib.parse
 
-import instant_gaming
-import steam
-import g2a
+import utils.instant_gaming
+import utils.steam
+import utils.g2a
 
-import wait_util
+import utils.wait_util
 import time
 
 
@@ -16,8 +16,8 @@ def get_prices(query, dlc=False, max=3):
     try:
         error[0] = False
         waiting = [True]
-        wait_util.wait_for(waiting, error, 'Connecting to instant-gaming ')
-        out += instant_gaming.get_prices(query, dlc, max)
+        utils.wait_util.wait_for(waiting, error, 'Connecting to instant-gaming ')
+        out += utils.instant_gaming.get_prices(query, dlc, max)
         waiting[0] = False
         time.sleep(.8)
     except Exception:
@@ -26,8 +26,8 @@ def get_prices(query, dlc=False, max=3):
     try:
         error[0] = False
         waiting = [True]
-        wait_util.wait_for(waiting, error, 'Connecting to steam ')
-        out += steam.get_prices(query, dlc, max)
+        utils.wait_util.wait_for(waiting, error, 'Connecting to steam ')
+        out += utils.steam.get_prices(query, dlc, max)
         waiting[0] = False
         time.sleep(.8)
     except Exception:
@@ -36,8 +36,8 @@ def get_prices(query, dlc=False, max=3):
     try:
         error[0] = False
         waiting = [True]
-        wait_util.wait_for(waiting, error, 'Connecting to g2a ')
-        out += g2a.get_prices(query, dlc, max)
+        utils.wait_util.wait_for(waiting, error, 'Connecting to g2a ')
+        out += utils.g2a.get_prices(query, dlc, max)
         waiting[0] = False
         time.sleep(.8)
     except Exception:
