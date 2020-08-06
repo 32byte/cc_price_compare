@@ -9,29 +9,36 @@ Using requests and BeautifulSoup the program collects data from websites, compar
 ```
 
 ## Installation
+### Linux
 ```bash
-# Clone the repo
-git clone git@github.com:32byte/cc_price_compare.git
+# Download and install
+sudo bash -c "$(curl https://raw.githubusercontent.com/32byte/cc_price_compare/master/unix-install.sh)"
+```
+
+### Windows
+```bash
 # or use https
 git clone https://github.com/32byte/cc_price_compare.git
-
-# Install requirements
-pip3 install -r requirements.txt
 # on windows
 pip install -r requirements.txt
 ```
 
 ## Usage
+### Linux
 ```bash
 # Run gui
-python3 gui.py
-# or on windows
+cc_price_gui
+
+# for help use cli.py --help
+cc_price_cli <game> [options]
+```
+
+### Windows
+```bash
+# Run gui
 python gui.py
 
-# Run cli
 # for help use cli.py --help
-python3 cli.py <game> [options]
-# or on windows
 python cli.py <game> [options]
 ```
 
