@@ -2,7 +2,7 @@ import requests as req
 from bs4 import BeautifulSoup as bs
 
 def get_prices(query, dlc=False, max=3):
-    r = req.get(f'https://www.instant-gaming.com/en/search/?q={query}')
+    r = req.get(f'https://www.instant-gaming.com/en/search/?type%5B%5D=steam&type%5B%5D=origin&type%5B%5D=uplay&type%5B%5D=battle.net&type%5B%5D=rockstar&all_cats=1&min_price=0&max_price=100&noprice=1&min_discount=0&max_discount=100&min_reviewsavg=10&max_reviewsavg=100&noreviews=1&available_in=AT&gametype=all&sort_by=&query={query}')
     soup = bs(r.text, "html.parser")
 
     output = []
