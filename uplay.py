@@ -26,6 +26,7 @@ def get_prices(query, dlc=False, max=3):
 def main():
     game = input("Game to compare: ")
     get_prices(game)
+    print()
     
 if __name__ == "__main__":
     main()
