@@ -1,7 +1,7 @@
 import tkinter as tk
 from PIL import Image
 from PIL import ImageTk
-import main
+from utils.util import get_prices
 
 
 class App(tk.Frame):
@@ -11,10 +11,28 @@ class App(tk.Frame):
         self.pack()
 
         def show_search():
+
+            self.steam1['text'] = ""
+            self.instant1['text'] = ""
+            self.g2a1['text'] = ""
+            self.connecting['text'] = "Connecting..."
             search_saved = self.search.get()
-            main.get_prices(search_saved, self.search_for_dlc)
+
+
+            result = get_prices(search_saved, self.search_for_dlc)
             #self.g2a2['text'] = search_saved
-            print(search_saved)
+            self.connecting['text'] = ""
+
+            for i in result:
+
+                if i[2].lower() == "instant-gaming":
+                    self.instant1['text'] =  self.instant1['text'] + i[0] + " (Price: " + str(i[1]) + ")" + "\n\n"
+                    print("test")
+                elif i[2].lower() == "steam":
+                    self.steam1['text'] = self.steam1['text'] + i[0] + " (Price: " + str(i[1]) + ")" + "\n\n"
+                elif i[2].lower() == "g2a":
+                    self.g2a1['text'] = self.g2a1['text'] + i[0] + "(Price: " + str(i[1]) + ")" + "\n\n"
+            print(result)
 
         self.search_for_dlc = False
 
@@ -58,19 +76,21 @@ class App(tk.Frame):
         self.steam_label = tk.Label(self, text="Steam.com", font="bold")
         self.instnat_label = tk.Label(self, text="Instant-Gaming.com", font="bold")
         self.g2a_label = tk.Label(self, text="g2a.com", font="bold")
-        self.steam1 = tk.Label(self)
-        self.steam2 = tk.Label(self)
-        self.steam3 = tk.Label(self)
-        self.instant1 = tk.Label(self)
-        self.instant2 = tk.Label(self)
-        self.instant3 = tk.Label(self)
-        self.g2a1 = tk.Label(self)
-        self.g2a2 = tk.Label(self)
-        self.g2a2 = tk.Label(self)
-        self.g2a3 = tk.Label(self)
+        self.steam1 = tk.Message(self)
+        #self.steam2 = tk.Label(self)
+       # self.steam3 = tk.Label(self)
+        self.instant1 = tk.Message(self, bd=4)
+        #self.instant2 = tk.Label(self)
+        #self.instant3 = tk.Label(self)
+        self.g2a1 = tk.Message(self)
+        #self.g2a2 = tk.Label(self)
+        #self.g2a2 = tk.Label(self)
+        #self.g2a3 = tk.Label(self)
 
         self.dlc_button = tk.Button(self, text="Search for DLCs:", command=search_dlc_switch)
         self.dlc_on = tk.Label(self, text="off")
+
+        self.connecting = tk.Label(self, fg="red", text="test")
 
 
 
@@ -101,21 +121,19 @@ class App(tk.Frame):
         self.label1.grid(row=1, column=0)
         self.search_button.grid(row=1, column=2, padx=10)
         self.search.grid(row=1, column=1)
-        self.all_prices_label.grid(row=3, column=0, pady=10)
-        self.dlc_button.grid(row=3, column=1)
-        self.dlc_on.grid(row=3, column=2)
-        self.steam_label.grid(row=4, column=0)
-        self.instnat_label.grid(row=4, column=1, padx= 10)
-        self.g2a_label.grid(row=4, column=2)
-        self.steam1.grid(row=5, column=0)
-        self.steam2.grid(row=6, column=0)
-        self.steam3.grid(row=7, column=0)
-        self.instant1.grid(row=5, column=1)
-        self.instant2.grid(row=6, column=1)
-        self.instant3.grid(row=7, column=1)
-        self.g2a1.grid(row=5, column=2)
-        self.g2a2.grid(row=6, column=2)
-        self.g2a3.grid(row=7, column=2)
+        #self.all_prices_label.grid(row=3, column=0, pady=10)
+        self.dlc_button.grid(row=3, column=0, padx=10)
+        self.dlc_on.grid(row=3, column=1, sticky="W", padx=10)
+        self.steam_label.grid(row=4, column=1)
+        self.instnat_label.grid(row=4, column=0, padx=5)
+        self.g2a_label.grid(row=4, column=2, padx=5)
+        self.steam1.grid(row=5, column=1, padx=5)
+
+        self.instant1.grid(row=5, column=0, stick="N")
+
+        self.g2a1.grid(row=5, column=2, sticky="N")
+
+        self.connecting.grid(row=1, column=3, sticky="N")
 
 
 

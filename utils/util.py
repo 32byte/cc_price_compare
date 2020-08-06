@@ -1,10 +1,10 @@
 import urllib.parse
 
-import util.instant_gaming as instant_gaming
-import util.steam as steam
-import util.g2a as g2a
+import instant_gaming
+import steam
+import g2a
 
-import util.wait_util as wait_util
+import wait_util
 import time
 
 
