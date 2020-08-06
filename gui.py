@@ -63,7 +63,7 @@ class App(tk.Frame):
         self.label1 = tk.Label(self, text="Game:", font=("Calibri", 12),)
         self.search = tk.Entry(self)
 
-        self.search_button_image = Image.open("C:/Users/andrzago20/GitHub/cc_price_compare/images/search_button2.png")
+        self.search_button_image = Image.open("images/search_button2.png")
         self.search_button_image = self.search_button_image.resize((17, 17), Image.ANTIALIAS)
         self.search_button_image_tk = ImageTk.PhotoImage(self.search_button_image)
         #self.search_button_design = Image.open("C:/Users/andrzago20/GitHub/cc_price_compare/images/button.png")

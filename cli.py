@@ -23,7 +23,6 @@ def print_data(data):
         last = e[0].lower()
 
 if __name__ == '__main__':
-    print('test')
     from util import get_prices
     import argparse
 
