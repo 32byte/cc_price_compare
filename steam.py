@@ -15,7 +15,6 @@ def get_prices(query, dlc=False, max=3):
     }
     r = req.get(f'https://store.steampowered.com/search/?term={query}', headers=headers)
     soup = bs(r.text, "html.parser")
-    # print(r.text)
     output = []
     
     results = soup.find('div', { 'id': 'search_resultsRows'})
