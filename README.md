@@ -11,8 +11,22 @@ Using requests and BeautifulSoup the program collects data from websites, compar
 ## Installation
 ### Linux
 ```bash
-# Download and install
+# Basic install
 sudo bash -c "$(curl https://raw.githubusercontent.com/32byte/cc_price_compare/master/unix-install.sh)"
+
+# Download and install
+curl https://raw.githubusercontent.com/32byte/cc_price_compare/master/unix-install.sh > unix-install.sh
+# or with wget
+wget https://raw.githubusercontent.com/32byte/cc_price_compare/master/unix-install.sh
+
+chmod +x unix-install.sh
+
+# Install
+./unix-install.sh
+# Update
+./unix-install.sh update
+# Uninstall
+./unix-install.sh uninstall
 ```
 
 ### Windows
