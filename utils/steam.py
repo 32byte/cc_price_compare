@@ -34,6 +34,8 @@ def get_prices(query, dlc=False, max=3):
                 pass
             elif "pass" in title.lower():
                 pass
+            elif "bundle" in title.lower():
+                pass
             elif price <= 0:
                 pass
             else:
