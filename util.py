@@ -42,7 +42,6 @@ def get_prices(query, dlc=False, max=3):
         waiting[0] = False
         time.sleep(.8)
     except Exception:
-        print(Exception)
         error[0] = True
         time.sleep(.8)
     try:
