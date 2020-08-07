@@ -2,7 +2,7 @@ import requests as req
 from bs4 import BeautifulSoup as bs
 
 def get_prices(query, dlc=False, max=3):
-    r = req.get(f'https://store.ubi.com/at/search?q={query}')
+    r = req.get(f'https://store.ubi.com/at/search?q={query}', timeout=5)
     soup = bs(r.text, "html.parser")
     output = []
 

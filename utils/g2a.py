@@ -13,7 +13,7 @@ def get_prices(query, dlc=False, max=3):
         'Upgrade-Insecure-Requests': '1',
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0',
     }
-    r = req.get(f'https://www.g2a.com/search?query={query}', headers=headers)
+    r = req.get(f'https://www.g2a.com/search?query={query}', headers=headers, timeout=5)
     soup = bs(r.text, "html.parser")
 
     output = []

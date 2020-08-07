@@ -13,7 +13,7 @@ def get_prices(query, dlc=False, max=3):
         'Upgrade-Insecure-Requests': '1',
         'Cache-Control': 'max-age=0',
     }
-    r = req.get(f'https://store.steampowered.com/search/?term={query}', headers=headers)
+    r = req.get(f'https://store.steampowered.com/search/?term={query}', headers=headers, timeout=5)
     soup = bs(r.text, "html.parser")
     output = []
     
